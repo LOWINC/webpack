@@ -1,12 +1,11 @@
 {
   "name": "demo",
   "version": "1.0.0",
-  "description": "",
+  "description": "webpack 测试项目",
   "private": true,
-  "main": "webpack.config.js",
   "scripts": {
-    "dev": "webpack-dev-server --open --config webpack.dev.js",
-    "build": "webpack-dev-server --open --config webpack.prod.js"
+    "dev": "webpack-dev-server --open --config ./webpack/index.dev.js",
+    "build": "webpack --config ./webpack/index.prod.js"
   },
   "keywords": [],
   "author": "",
@@ -23,6 +22,7 @@
     "mini-css-extract-plugin": "^0.8.0",
     "postcss-loader": "^3.0.0",
     "style-loader": "^1.0.0",
+    "terser-webpack-plugin": "^2.2.1",
     "ts-loader": "^6.2.1",
     "typescript": "^3.6.4",
     "uglifyjs-webpack-plugin": "^2.2.0",

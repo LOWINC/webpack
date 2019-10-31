@@ -19,7 +19,7 @@ const obj = {
 function create() {
   const elm = document.createElement("div");
 
-  elm.innerHTML = obj.name;
+  elm.innerHTML = "obj.name";
   elm.onclick = () => print("hello");
   const image = new Image();
   image.src = pic;
