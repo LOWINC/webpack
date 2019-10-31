@@ -4,8 +4,11 @@ import pic from "./1.png";
 import {print} from "./print";
 
 import get from "lodash/get";
+import tsFun from "./index.ts";
 
 console.log(get(undefined, "name", "hahah"));
+
+console.log(tsFun("123"));
 
 console.log("NODE_ENV:", process.env.NODE_ENV);
 

@@ -13,6 +13,9 @@ module.exports = {
     filename: "[name].[hash].js",
     path: path.resolve(__dirname, "dist")
   },
+  resolve: {
+    extensions: [".tsx", ".ts", ".js"]
+  },
   plugins: [
     new CleanWebpackPlugin(),
     new webpack.ProgressPlugin(),
@@ -43,6 +46,11 @@ module.exports = {
   module: {
     rules: [
       {
+        test: /\.(png|svg|jpg|gif)$/,
+        use: ["file-loader"]
+      },
+      {test: /\.tsx?$/, loader: "ts-loader"},
+      {
         test: /\.(le|c)ss$/,
         use: [
           {
@@ -54,10 +62,6 @@ module.exports = {
           "css-loader",
           "less-loader"
         ]
-      },
-      {
-        test: /\.(png|svg|jpg|gif)$/,
-        use: ["file-loader"]
       }
     ]
   }
