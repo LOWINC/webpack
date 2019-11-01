@@ -1,3 +1,7 @@
-export default function tsFun(str: string) {
-  return `tsFun:${str}`;
-}
+import * as Foo from "./tools/foo";
+import * as Baz from "./tools/baz";
+
+export default {
+  Foo,
+  Baz
+};
