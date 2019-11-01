@@ -1,9 +1,12 @@
 {
-  "name": "swq",
+  "name": "@lowinc/lib",
   "version": "1.0.0",
   "description": "webpack打包",
-  "private": true,
-  "main": "src/index.js",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "dev": "webpack-dev-server --open --config ./webpack/index.dev.js",
     "build": "npm run build:js && npm run build:types",
@@ -11,7 +14,7 @@
     "build:js": "webpack --config ./webpack/index.prod.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "lowinc",
   "license": "ISC",
   "devDependencies": {
     "@babel/cli": "^7.6.4",
