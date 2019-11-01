@@ -1,5 +1,4 @@
-import TOOS from "./index";
+import {Utils, Constants} from "./index";
 
-TOOS.Foo.foo({str: "SWQ"});
-
-TOOS.Baz.default();
+console.log(Utils.Order.isInitOrder("Paying"));
+console.log(Constants.Order.MapStatusToStr);

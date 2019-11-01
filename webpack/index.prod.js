@@ -4,13 +4,10 @@ const TerserPlugin = require("terser-webpack-plugin");
 const webpack = require("webpack");
 const path = require("path");
 const pkg = require("../package.json");
-const DeclarationBundlerPlugin = require("declaration-bundler-webpack-plugin");
-
-console.log(`打包库:${pkg.name}`);
 
 module.exports = merge(common, {
   entry: {
-    index: "./src/index.ts"
+    index: "./src/index"
   },
   mode: "production",
   output: {
@@ -22,10 +19,6 @@ module.exports = merge(common, {
   plugins: [
     new webpack.DefinePlugin({
       "process.env.NODE_ENV": JSON.stringify("production")
-    }),
-    new DeclarationBundlerPlugin({
-      moduleName: pkg.name,
-      out: "index.d.ts"
     })
   ],
   optimization: {

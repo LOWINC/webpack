@@ -5,7 +5,7 @@ const webpack = require("webpack");
 
 module.exports = merge(common, {
   entry: {
-    index: "./src/test.ts"
+    index: "./src/test"
   },
   mode: "development",
   devtool: "inline-source-map",
