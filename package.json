@@ -11,7 +11,8 @@
     "dev": "webpack-dev-server --open --config ./webpack/index.dev.js",
     "build": "npm run build:js && npm run build:types",
     "build:types": "tsc --emitDeclarationOnly",
-    "build:js": "webpack --config ./webpack/index.prod.js"
+    "build:js": "webpack --config ./webpack/index.prod.js",
+    "test": "jest --jest.config.js"
   },
   "keywords": [],
   "author": "lowinc",
@@ -25,6 +26,7 @@
     "@babel/plugin-syntax-dynamic-import": "^7.2.0",
     "@babel/preset-env": "^7.6.3",
     "@babel/preset-typescript": "^7.6.0",
+    "@types/jest": "^24.0.21",
     "@typescript-eslint/eslint-plugin": "^2.6.0",
     "@typescript-eslint/parser": "^2.6.0",
     "babel-loader": "^8.0.4",
@@ -33,8 +35,10 @@
     "eslint": "^6.6.0",
     "eslint-plugin-react": "^7.16.0",
     "html-webpack-plugin": "^3.2.0",
+    "jest": "^24.9.0",
     "open-browser-webpack-plugin": "^0.0.5",
     "terser-webpack-plugin": "^2.2.1",
+    "ts-jest": "^24.1.0",
     "typescript": "^3.6.4",
     "uglifyjs-webpack-plugin": "^2.2.0",
     "webpack": "^4.41.2",
