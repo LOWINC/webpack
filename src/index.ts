@@ -1,4 +1,3 @@
-import * as Constants from "./constants";
-import * as Utils from "./utils";
+import pages from './pages/layout'
 
-export {Constants, Utils};
+export default pages

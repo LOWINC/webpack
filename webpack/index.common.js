@@ -1,7 +1,8 @@
-const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const webpack = require("webpack");
 const devMode = process.env.NODE_ENV !== "production";
+
+
 module.exports = {
   resolve: {
     extensions: [".ts", ".tsx", ".js", ".jsx"]

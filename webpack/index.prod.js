@@ -4,18 +4,18 @@ const TerserPlugin = require("terser-webpack-plugin");
 const webpack = require("webpack");
 const path = require("path");
 const pkg = require("../package.json");
-const {CleanWebpackPlugin} = require("clean-webpack-plugin");
+const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 
 module.exports = merge(common, {
   entry: {
-    index: "./src/index"
+    index: "./src/index.ts"
   },
   mode: "production",
   output: {
     path: path.resolve(__dirname, "../dist/"),
     filename: "[name].js",
     library: pkg.name,
-    libraryTarget: "umd"
+    libraryTarget: "umd",
   },
   plugins: [
     new webpack.DefinePlugin({

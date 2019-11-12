@@ -3,9 +3,11 @@ const merge = require("webpack-merge");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const webpack = require("webpack");
 
+const path = require("path");
+
 module.exports = merge(common, {
   entry: {
-    index: "./src/test"
+    index: "./src/app"
   },
   mode: "development",
   devtool: "inline-source-map",
@@ -18,7 +20,8 @@ module.exports = merge(common, {
     }),
     new webpack.NamedModulesPlugin(),
     new HtmlWebpackPlugin({
-      title: "HtmlWebpackPlugin"
+      title: "HtmlWebpackPlugin",
+      template: path.resolve(__dirname, '../src/index.html')
     }),
     new webpack.HotModuleReplacementPlugin()
   ]
