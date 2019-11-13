@@ -11,10 +11,15 @@
 3. 打包 npm 包 npm run build
 
 ---
+### react 分支
 
-### spa 分支
+> 开发 react 应用
 
-> 开发 html 应用
+---
+### taro 分支
 
-1. 开发 npm run dev
-2. 打包 npm run build
+> 开发 taro 组件
+
+
+
+
