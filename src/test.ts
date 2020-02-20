@@ -1,4 +1,5 @@
-import {Utils, Constants} from "./index";
+import { Utils, Constants } from "./index";
 
 console.log(Utils.Order.isInitOrder("Paying"));
 console.log(Constants.Order.MapStatusToStr);
+console.log(Utils.Order.day());

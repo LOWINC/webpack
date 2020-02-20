@@ -50,6 +50,7 @@
   "dependencies": {
     "@babel/runtime": "^7.7.2",
     "@types/lodash": "^4.14.144",
+    "dayjs": "^1.8.20",
     "global": "^4.4.0",
     "lodash": "^4.17.15"
   }
