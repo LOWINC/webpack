@@ -61,7 +61,7 @@ function getTopBar() {
 
 // 生成 安全区域
 (function createSafeArea() {
-  const app: any = document.querySelector("body");
+  const app: any = document.querySelector("#app");
   const safeArea = getSaveArea();
   for (const key in safeArea) {
     app.style[key] = JSON.parse(safeArea[key]) + "px";
@@ -74,13 +74,15 @@ function getTopBar() {
     return;
   }
 
-  const app: any = document.querySelector("body");
+  const app: any = document.querySelector("#app");
   const safeArea = getSaveArea();
 
+  const title = document.title || "会员权益";
+
   const html = `
-    <div class="__topbar" style="top:${safeArea.paddingTop}px;">
+    <div class="__topbar" style="padding-top: ${safeArea.paddingTop}px;">
       <button class="__topbar_icon"></button>
-      <div class="__topbar_title">${document.title}</div>
+      <div class="__topbar_title">${title}</div>
     </div>
   `;
   insertDom(app, html);
@@ -88,4 +90,5 @@ function getTopBar() {
   const btnBack: any = document.querySelector(".__topbar_icon");
   btnBack.onclick = () => history.go(-1);
   window.addEventListener("popstate", createTopbar);
+  window.addEventListener("load", createTopbar);
 })();

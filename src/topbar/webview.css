@@ -1,10 +1,11 @@
 .__topbar {
   width: 100%;
-  height: 90px;
+  height: 45px;
   background-color: #fff;
   position: relative;
   position: fixed;
   left: 50%;
+  top: 0;
   transform: translateX(-50%);
   display: flex;
   align-items: center;
@@ -12,12 +13,12 @@
 }
 
 .__topbar_icon {
-  width: 90px;
-  height: 90px;
-  background-image: url('./arrow-help-center@.png');
+  width: 45px;
+  height: 45px;
+  background-image: url("./arrow-help-center@.png");
   position: absolute;
   left: 0;
-  background-size: 30px auto;
+  background-size: 15px auto;
   background-repeat: no-repeat;
   background-position: center center;
   transform: rotate(180deg);
@@ -28,6 +29,6 @@
 
 .__topbar_title {
   text-align: center;
-  font-size: 40px;
+  font-size: 15px;
   color: #333333;
 }

@@ -1,1 +1,3 @@
-import "./topbar/webview";
+// import "./topbar/webview";
+
+import "../dist/index";
