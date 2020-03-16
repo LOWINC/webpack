@@ -6,21 +6,6 @@ const keys = {
   safeArea: "WEBVIEW_SAFE_AREA"
 };
 
-function insertAfter(newElement: any, targetElement: any) {
-  const parent = targetElement.parentNode;
-  if (parent.lastChild == targetElement) {
-    parent.appendChild(newElement);
-  } else {
-    parent.insertBefore(newElement, targetElement.nextSibling);
-  }
-}
-
-function insertDom(dom: any, html: any) {
-  const element = document.createElement("DIV");
-  element.innerHTML = html;
-  insertAfter(element, dom);
-}
-
 function getSaveArea() {
   let safeArea: any = localStorage.getItem(keys.safeArea);
   if (!safeArea) {
@@ -38,7 +23,7 @@ function getTopBar() {
 }
 
 // 保存
-(function saveWebviewParams() {
+export function saveWebviewParams() {
   const params = qs.parse(window.location.search.split("?")[1]);
 
   if (params.topbar) {
@@ -57,27 +42,36 @@ function getTopBar() {
       JSON.stringify({paddingTop, paddingRight, paddingBottom, paddingLeft})
     );
   }
-})();
+}
 
 // 生成 安全区域
-(function createSafeArea() {
-  const app: any = document.querySelector("#app");
+export function createSafeArea() {
+  const app: any = document.querySelector("body");
   const safeArea = getSaveArea();
+  if (safeArea.paddingTop !== 0) {
+    safeArea.paddingTop = safeArea.paddingTop + 45 + 10;
+  }
   for (const key in safeArea) {
     app.style[key] = JSON.parse(safeArea[key]) + "px";
   }
-})();
+}
+
+function insertDom(dom: Element, elm: Element, className: string) {
+  const oldElm = dom.querySelector(`.${className}`);
+  // 删除老的
+  if (oldElm) {
+    oldElm.parentNode && oldElm.parentNode.removeChild(oldElm);
+  }
+  dom.appendChild(elm);
+}
 
 // 生成 返回条
-(function createTopbar() {
+export function createTopbar(title = "会员权益") {
   if (!getTopBar()) {
     return;
   }
 
-  const app: any = document.querySelector("#app");
   const safeArea = getSaveArea();
-
-  const title = document.title || "会员权益";
 
   const html = `
     <div class="__topbar" style="padding-top: ${safeArea.paddingTop}px;">
@@ -85,16 +79,14 @@ function getTopBar() {
       <div class="__topbar_title">${title}</div>
     </div>
   `;
-  insertDom(app, html);
+
+  const elm = document.createElement("DIV");
+  elm.innerHTML = html;
+  elm.className = "__webview__topbar";
+  const app: any = document.querySelector("body");
+
+  insertDom(app, elm, "__webview__topbar");
 
   const btnBack: any = document.querySelector(".__topbar_icon");
   btnBack.onclick = () => history.go(-1);
-  window.addEventListener("popstate", () => {
-    console.log("popstate");
-    createTopbar();
-  });
-  window.addEventListener("load", () => {
-    console.log("load");
-    createTopbar();
-  });
-})();
+}
