@@ -89,6 +89,12 @@ function getTopBar() {
 
   const btnBack: any = document.querySelector(".__topbar_icon");
   btnBack.onclick = () => history.go(-1);
-  window.addEventListener("popstate", createTopbar);
-  window.addEventListener("load", createTopbar);
+  window.addEventListener("popstate", () => {
+    console.log("popstate");
+    createTopbar();
+  });
+  window.addEventListener("load", () => {
+    console.log("load");
+    createTopbar();
+  });
 })();
